@@ -52,7 +52,7 @@ public class InsultGenerator {
                                                 + "from SLA_PENALTY p";
                                                 
             String returnstring = "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
-            Statement stmt = connection.createStatement();
+            Statement stmt = testconnection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY); 
             returnstring += "Content of SLA_PENALTY:" + newline;
             returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
@@ -66,9 +66,9 @@ public class InsultGenerator {
             return returnstring;
             }
     	} catch (Exception e) {
-            	System.out.println("Connection Failed! Check output console");
+            	System.out.println("Testconnection Failed! Check output console");
 		e.printStackTrace();
-		return "Connection Failed! Check output console";
+		return "TestConnection Failed! Check output console";
 		}
     	 
          
