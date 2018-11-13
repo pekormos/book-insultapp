@@ -11,7 +11,7 @@ public class InsultGenerator {
 	public String generateInsult() { 
  	 	String querry_result = ""; 
 		//String newline = System.getProperty("line.separator");
-		String newline = "%%n";
+		String newline = System.lineSeparator();
 		String databaseURL = "";
 		String username = "";
 		String password = "";
@@ -50,7 +50,7 @@ public class InsultGenerator {
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
             Statement stmt = testconnection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY); 
-            returnstring += "Content of SLA_PENALTY" + newline;
+            returnstring += "Content of SLA_PENALTY" + System.getProperty("line.separator");
             //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
             returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
             returnstring += newline;
