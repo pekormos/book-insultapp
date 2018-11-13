@@ -51,7 +51,7 @@ public class InsultGenerator {
                                                 + "p.VALID_TO AS valid_to"
                                                 + "from SLA_PENALTY p";
                                                 
-            String returnstring = "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline";
+            String returnstring = "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY); 
             returnstring += "Content of SLA_PENALTY:" + newline;
