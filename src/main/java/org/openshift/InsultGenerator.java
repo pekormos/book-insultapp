@@ -63,7 +63,7 @@ public class InsultGenerator {
                 	
 			querry_result += newline;
                 
- 			ResultSet rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
+ 			rs = stmt.executeQuery(SQL_SLA_SOLUTION); 
                 	querry_result += "Content of SQL_SLA_SOLUTION:" + newline;;
                 	querry_result += "SOLUTION, RECORD_DATE, CUSTOMER, NUMBER_ACTIVE_SPS, CANCELLATION_DATE" + newline;
  			
@@ -74,7 +74,7 @@ public class InsultGenerator {
  			rs.close();
                 	querry_result += newline;
 
-                	ResultSet rs = stmt.executeQuery(SQL_SLA_SERVICELEVEL); 
+                	rs = stmt.executeQuery(SQL_SLA_SERVICELEVEL); 
                 	querry_result += "Content of SQL_SLA_SERVICELEVEL:" + newline;
                 	querry_result += "SLA_NAME, SLA_TYPE, SLA_VERSION, SOLCOMMIT_FLAG, SPCOMMIT_VALUE, PROCESS_FLAG, VALID_FROM, VALID_TO" + newline;
  			
