@@ -10,17 +10,18 @@ import java.sql.Statement;
 
 public class InsultGenerator { 
 	public String generateInsult() { 
- 		String querry_result = ""; 
-        String newline = System.getProperty("line.separator");
+ 	 	String querry_result = ""; 
+		String newline = System.getProperty("line.separator");
+		String databaseURL = "";
+		String username = "";
+		String password = "";
         
         try {
-            String databaseURL = "jdbc:postgresql://"; 
- 			databaseURL += System.getenv("POSTGRESQL_SERVICE_HOST"); 
- 			databaseURL += "/" + System.getenv("POSTGRESQL_DATABASE"); 
- 
-
- 			String username = System.getenv("POSTGRESQL_USER"); 
- 			String password = System.getenv("PGPASSWORD"); 
+            	databaseURL = "jdbc:postgresql://"; 
+ 		databaseURL += System.getenv("POSTGRESQL_SERVICE_HOST"); 
+ 		databaseURL += "/" + System.getenv("POSTGRESQL_DATABASE"); 
+ 		username = System.getenv("POSTGRESQL_USER"); 
+ 		password = System.getenv("PGPASSWORD"); 
         } catch (Exception e) {
             System.out.println("Getting DB parameters failed");
             return "Getting DB parameters failed";
