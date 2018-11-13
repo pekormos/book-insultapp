@@ -1,6 +1,4 @@
-
 package org.openshift; 
- 
 
 import java.sql.Connection; 
 import java.sql.DriverManager; 
@@ -43,8 +41,12 @@ public class InsultGenerator {
         
         Connection testconnection = null;
         try {
-		testconnection = DriverManager.getConnection(databaseURL, username, password);
-		testconnection.close();
+            testconnection = DriverManager.getConnection(databaseURL, username, password);
+            if (testconnection != null) { 
+            string returnstring = "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password";
+            testconnection.close();
+            return returnstring;
+            }
     	} catch (Exception e) {
             	System.out.println("Connection Failed! Check output console");
 		e.printStackTrace();
