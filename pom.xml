@@ -12,6 +12,14 @@
         <maven.compiler.source>1.8</maven.compiler.source>
     	<maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+<!-- Added by pekormos 12.11.2018-->    
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4-1200-jdbc41</version>
+        </dependency>
+    </dependencies>	
 <build>
     <plugins>
         <plugin>
