@@ -50,7 +50,7 @@ public class InsultGenerator {
             Statement stmt = testconnection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY);
 
-            String separator = System.getProperty( "line.separator" );
+            private static final String separator = System.getProperty("line.separator").toString();
             StringBuilder row = new StringBuilder( "Content of SLA_PENALTY" );
             row.append( separator );
 
