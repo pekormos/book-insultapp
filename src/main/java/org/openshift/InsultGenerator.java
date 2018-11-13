@@ -10,7 +10,8 @@ import java.sql.SQLException;
 public class InsultGenerator { 
 	public String generateInsult() { 
  	 	String querry_result = ""; 
-		String newline = System.getProperty("line.separator");
+		//String newline = System.getProperty("line.separator");
+		String newline = "%n";
 		String databaseURL = "";
 		String username = "";
 		String password = "";
@@ -49,11 +50,13 @@ public class InsultGenerator {
             Statement stmt = testconnection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY); 
             returnstring += "Content of SLA_PENALTY:" + newline;
-            //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
+            returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
+            returnstring +=("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s%n", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
+
  	    while (rs.next()) { 
-                     //  returnstring +=  String.format("%s, %s, %s, %s, %s, %s" + newline, rs.getString("sla_name"), rs.getString("limit_dev_min"), rs.getString("limit_dev_max"), rs.getString("penalty_rel"), rs.getString("valid_from"),rs.getString("valid_to")); 
-                      // returnstring += newline;
-                      returnstring +=  rs.getString("SLA_NAME") + newline;
+                       returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs.getString("SLA_NAME"), rs.getString("LIMIT_DEV_MIN"), rs.getString("LIMIT_DEV_MAX"), rs.getString("PENALTY_REL"), rs.getString("VALID_FROM"),rs.getString("VALID_TO")); 
+                      returnstring += newline;
+                      
  		} 
  	    rs.close();
             
