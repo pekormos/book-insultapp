@@ -41,9 +41,27 @@ public class InsultGenerator {
         
         Connection testconnection = null;
         try {
-            testconnection = DriverManager.getConnection(databaseURL, username, password);
+	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
-            String returnstring = "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password;
+            String SQL_SLA_PENALTY = "select   p.SLA_NAME as sla_name,"
+                                                + "p.LIMIT_DEV_MIN AS limit_dev_min,"
+                                                + "p.LIMIT_DEV_MAX AS limit_dev_max,"
+                                                + "p.PENALTY_REL AS penalty_rel,"
+                                                + "p.VALID_FROM AS valid_from,"
+                                                + "p.VALID_TO AS valid_to"
+                                                + "from SLA_PENALTY p";
+                                                
+            String returnstring = "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY); 
+            returnstring += "Content of SLA_PENALTY:" + newline;
+            returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
+ 	    while (rs.next()) { 
+                       returnstring +=  String.format("%s, %s, %s, %s, %s, %s" + newline, rs.getString("sla_name"), rs.getString("limit_dev_min"), rs.getString("limit_dev_max"), rs.getString("penalty_rel"), rs.getString("valid_from"),rs.getString("valid_to")); 
+                       returnstring += newline;
+ 		} 
+ 	    rs.close();
+            
             testconnection.close();
             return returnstring;
             }
