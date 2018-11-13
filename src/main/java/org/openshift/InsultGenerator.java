@@ -11,7 +11,7 @@ public class InsultGenerator {
 	public String generateInsult() { 
  	 	String querry_result = ""; 
 		//String newline = System.getProperty("line.separator");
-		String newline = "%n";
+		String newline = "%%n";
 		String databaseURL = "";
 		String username = "";
 		String password = "";
@@ -45,20 +45,23 @@ public class InsultGenerator {
 	    testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
             String SQL_SLA_PENALTY = "select * from SLA_PENALTY";
-                                                
-            String returnstring = "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
+            
+            String returnstring =  "";          
+            //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
             Statement stmt = testconnection.createStatement();
             ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY); 
-            returnstring += "Content of SLA_PENALTY:" + newline;
-            returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
-            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s%n", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
+            returnstring += "Content of SLA_PENALTY" + newline;
+            //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
+            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
+            returnstring += newline;
 
- 	    while (rs.next()) { 
+
+            while (rs.next()) { 
                        returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs.getString("SLA_NAME"), rs.getString("LIMIT_DEV_MIN"), rs.getString("LIMIT_DEV_MAX"), rs.getString("PENALTY_REL"), rs.getString("VALID_FROM"),rs.getString("VALID_TO")); 
                       returnstring += newline;
                       
- 		} 
- 	    rs.close();
+            } 
+            rs.close();
             
             testconnection.close();
             return returnstring; 
