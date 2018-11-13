@@ -23,7 +23,7 @@ public class InsultGenerator {
  			String password = System.getenv("PGPASSWORD"); 
         } catch (Exception e) {
             System.out.println("Getting DB parameters failed");
-            return;
+            return "Getting DB parameters failed";
         }
         
  		
@@ -33,7 +33,7 @@ public class InsultGenerator {
 			System.out.println("Where is your PostgreSQL JDBC Driver? "
                                 + "Include in your library path!");
 			e.printStackTrace();
-			return;
+			return "Where is your PostgreSQL JDBC Driver? Include in your library path!";
 
 		}        
         System.out.println("PostgreSQL JDBC Driver Registered!");
@@ -44,7 +44,7 @@ public class InsultGenerator {
     	} catch (SQLException e) {
             	System.out.println("Connection Failed! Check output console");
 		e.printStackTrace();
-		return;
+		return "Connection Failed! Check output console";
 		}
     	 testconnection.close();
          
