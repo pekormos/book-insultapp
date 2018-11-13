@@ -51,7 +51,7 @@ public class InsultGenerator {
             ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY); 
             returnstring += "Content of SLA_PENALTY:" + newline;
             returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
-            returnstring +=("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s%n", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
+            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s%n", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
 
  	    while (rs.next()) { 
                        returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs.getString("SLA_NAME"), rs.getString("LIMIT_DEV_MIN"), rs.getString("LIMIT_DEV_MAX"), rs.getString("PENALTY_REL"), rs.getString("VALID_FROM"),rs.getString("VALID_TO")); 
