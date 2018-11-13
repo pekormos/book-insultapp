@@ -25,7 +25,8 @@ public class InsultGenerator {
             System.out.println("Getting DB parameters failed");
             return "Getting DB parameters failed";
         }
-        
+		
+         System.out.println("databaseURL :" + databaseURL + ", username :" + username + ", password :" + password);
  		
         try {
             Class.forName("org.postgresql.Driver");
@@ -40,7 +41,7 @@ public class InsultGenerator {
         
         Connection testconnection = null;
         try {
-		testconnection = DriverManager.getConnection("jdbc:postgresql://" + System.getenv("POSTGRESQL_SERVICE_HOST") + "/" + System.getenv("POSTGRESQL_DATABASE"), username, password);
+		testconnection = DriverManager.getConnection(databaseURL, username, password);
     	} catch (SQLException e) {
             	System.out.println("Connection Failed! Check output console");
 		e.printStackTrace();
