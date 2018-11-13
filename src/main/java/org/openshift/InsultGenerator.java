@@ -44,12 +44,13 @@ public class InsultGenerator {
         Connection testconnection = null;
         try {
 		testconnection = DriverManager.getConnection(databaseURL, username, password);
-    	} catch (SQLException e) {
+		testconnection.close();
+    	} catch (Exception e) {
             	System.out.println("Connection Failed! Check output console");
 		e.printStackTrace();
 		return "Connection Failed! Check output console";
 		}
-    	 testconnection.close();
+    	 
          
  	try { 
 		Connection connection = DriverManager.getConnection(databaseURL, username, password); 
