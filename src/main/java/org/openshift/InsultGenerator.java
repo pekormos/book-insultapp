@@ -43,7 +43,7 @@ public class InsultGenerator {
         try {
             testconnection = DriverManager.getConnection(databaseURL, username, password);
             if (testconnection != null) { 
-            string returnstring = "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password";
+            string returnstring = "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password;
             testconnection.close();
             return returnstring;
             }
