@@ -46,24 +46,25 @@ public class InsultGenerator {
             if (testconnection != null) { 
             String SQL_SLA_PENALTY = "select * from SLA_PENALTY";
             
-            String returnstring =  "";          
             //returnstring += "Sikeres a testconnection! databaseURL :" + databaseURL + ", username :" + username + ", password :" + password + newline;
             Statement stmt = testconnection.createStatement();
-            ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY); 
-            returnstring += "Content of SLA_PENALTY" + System.getProperty("line.separator");
+            ResultSet rs = stmt.executeQuery(SQL_SLA_PENALTY);
+
+            String separator = System.getProperty( "line.separator" );
+            StringBuilder row = new StringBuilder( "Content of SLA_PENALTY" );
+            row.append( separator );
+
             //returnstring += "SLA_NAME, LIMIT_DEV_MIN, LIMIT_DEV_MAX, PENALTY_REL, VALID_FROM, VALID_TO" + newline;
-            returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO");
-            returnstring += newline;
-
-
+            row.append(String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s", "SLA_NAME", "LIMIT_DEV_MIN", "LIMIT_DEV_MAX", "PENALTY_REL", "VALID_FROM", "VALID_TO"));
+            row.append( separator );
+            
             while (rs.next()) { 
-                       returnstring +=  String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs.getString("SLA_NAME"), rs.getString("LIMIT_DEV_MIN"), rs.getString("LIMIT_DEV_MAX"), rs.getString("PENALTY_REL"), rs.getString("VALID_FROM"),rs.getString("VALID_TO")); 
-                      returnstring += newline;
-                      
+                       row.append(String.format("%-30.30s %-30.30s %-30.30s %-30.30s %-30.30s  %-30.30s" + newline, rs.getString("SLA_NAME"), rs.getString("LIMIT_DEV_MIN"), rs.getString("LIMIT_DEV_MAX"), rs.getString("PENALTY_REL"), rs.getString("VALID_FROM"),rs.getString("VALID_TO"))); 
+                      row.append( separator );
             } 
             rs.close();
-            
             testconnection.close();
+            String returnstring = row.toString( );
             return returnstring; 
             }
     	} catch (Exception e) {
