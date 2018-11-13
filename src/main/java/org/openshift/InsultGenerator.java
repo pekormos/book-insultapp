@@ -21,7 +21,7 @@ public class InsultGenerator {
 
  			String username = System.getenv("POSTGRESQL_USER"); 
  			String password = System.getenv("PGPASSWORD"); 
-        } catch {
+        } catch (Exception e) {
             System.out.println("Getting DB parameters failed");
             return;
         }
