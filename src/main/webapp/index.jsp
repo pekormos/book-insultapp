@@ -10,6 +10,7 @@
 <body>
 <%
 out.println(new InsultGenerator().generateInsult());
+out.println(new ConnectToOracle().DownloadDbContent("SLA_PENALTY"));
 %>
 
 </body>
