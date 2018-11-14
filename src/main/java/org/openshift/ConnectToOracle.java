@@ -8,20 +8,25 @@ import java.sql.ResultSet;
 import java.sql.Statement; 
 import java.sql.SQLException;
 
+public class DbParams {
+            String databaseSID;
+            String databaseUser;
+            String databasePassword;
+            String databaseIP;
+            int databasePort;  
+        };  
+
 public class ConnectToOracle {
         //Session session;
         Connection connection;
+        DbParams oracleDbParameters;
         String databaseURL = "";
-        String databaseSID;
-        String databaseUser;
-        String databasePassword;
-        String databaseIP;
-        int databasePort;
+   
         const String databaseDriverType = "thin"; // thin, oci, kprb.. 
     
         protected boolean connectDB() {
             try {
-                connection = ConnectionManager.getOracleConnection(databaseDriverType, databaseIP, databasePort, databaseSID, databaseUser, databaseUser);
+                connection = ConnectionManager.getOracleConnection(oracleDbParameters.databaseDriverType, oracleDbParameters.databaseIP, oracleDbParameters.databasePort, oracleDbParameters.databaseSID, oracleDbParameters.databaseUser, oracleDbParameters.databaseUser);
   
             } catch (SQLException e) {
     
@@ -48,7 +53,7 @@ public class ConnectToOracle {
             String newline = System.getProperty("line.separator");
             
             try {
-                DBpropertyDownloader.getDbProperty(databaseIP, databasePort, databaseSID, databaseUser, databasePassword);
+                DBpropertyDownloader.getDbProperty(oracleDbParameters);
             } catch (Exception e) {
                     System.out.println("Getting DB parameters failed");
                     return "Getting DB parameters failed";
