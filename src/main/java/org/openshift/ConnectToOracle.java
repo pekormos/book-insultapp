@@ -121,5 +121,6 @@ public class ConnectToOracle {
                 e.printStackTrace();
                 return "Connection to ORACLE DB Failed! Check output console";
             }
+         return returnstring;
          }
 }
