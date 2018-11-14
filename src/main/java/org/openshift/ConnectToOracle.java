@@ -3,7 +3,6 @@
 package oracleconnection;
 
 import java.sql.Connection; 
-import java.sql.DriverManager; 
 import java.sql.ResultSet; 
 import java.sql.Statement; 
 import java.sql.SQLException;
@@ -13,7 +12,7 @@ class DbParams {
             String databaseUser;
             String databasePassword;
             String databaseIP;
-            int databasePort;  
+            String databasePort;  
         };  
 
 public class ConnectToOracle {
@@ -26,7 +25,7 @@ public class ConnectToOracle {
     
         protected boolean connectDB() {
             try {
-                connection = ConnectionManager.getOracleConnection(oracleDbParameters.databaseDriverType, oracleDbParameters.databaseIP, oracleDbParameters.databasePort, oracleDbParameters.databaseSID, oracleDbParameters.databaseUser, oracleDbParameters.databaseUser);
+                connection = ConnectionManager.getOracleConnection(databaseDriverType, oracleDbParameters.databaseIP, oracleDbParameters.databasePort, oracleDbParameters.databaseSID, oracleDbParameters.databaseUser, oracleDbParameters.databaseUser);
   
             } catch (SQLException e) {
     
