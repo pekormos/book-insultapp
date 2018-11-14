@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement; 
 import java.sql.SQLException;
 
-public class DbParams {
+class DbParams {
             String databaseSID;
             String databaseUser;
             String databasePassword;
@@ -53,7 +53,12 @@ public class ConnectToOracle {
             String newline = System.getProperty("line.separator");
             
             try {
-                DBpropertyDownloader.getDbProperty(oracleDbParameters);
+                //DBpropertyDownloader.getDbProperty(oracleDbParameters);
+                oracleDbParameters.databaseUser = System.getenv("ORACLE_ELINK_USER");
+                oracleDbParameters.databasePassword = System.getenv("ORACLE_ELINK_PASSWORD");
+                oracleDbParameters.databaseIP =  System.getenv("ORACLE_SERVICE_IP");
+                oracleDbParameters.databasePort = System.getenv("ORACLE_SERVICE_PORT");
+                oracleDbParameters.databaseSID = System.getenv("ORACLE_DATABASE_SERVICE_ID");
             } catch (Exception e) {
                     System.out.println("Getting DB parameters failed");
                     return "Getting DB parameters failed";
