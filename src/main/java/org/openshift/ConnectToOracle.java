@@ -22,7 +22,7 @@ public class ConnectToOracle {
         DbParams oracleDbParameters;
         String databaseURL = "";
    
-        const String databaseDriverType = "thin"; // thin, oci, kprb.. 
+        String databaseDriverType = "thin"; // thin, oci, kprb.. 
     
         protected boolean connectDB() {
             try {
@@ -108,7 +108,7 @@ public class ConnectToOracle {
                 
                     }   
                 rs.close();
-                connection.close;
+                connection.close();
                 return returnstring;
                 }
              } catch (Exception e) {
