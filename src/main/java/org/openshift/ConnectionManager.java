@@ -11,10 +11,4 @@ public class ConnectionManager {
         return DriverManager.getConnection("jdbc:oracle"+ ":" + iDatabaseDriverType + ":" + "@" + iDatabaseIP + iDatabasePort + ":" + iDatabaseSID, iDatabaseUser, iDatabasePassword);
     }
 
-
-    public static Connection getOracleConnection(String databaseDriverType, String databaseIP, String databasePort, String databaseSID, String databaseUser, String databasePassword){
-        // TODO Auto-generated method stub
-        return null;
-    }
-
 }
