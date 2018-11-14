@@ -17,7 +17,7 @@ public class ConnectToOracle {
         String databasePassword;
         String databaseIP;
         int databasePort;
-        const String databaseDriverType = "thin" // thin, oci, kprb.. 
+        const String databaseDriverType = "thin"; // thin, oci, kprb.. 
     
         protected boolean connectDB() {
             try {
@@ -79,7 +79,7 @@ public class ConnectToOracle {
 
            try {
             if (connectDB()) {
-                Statement stmt=oracle_connection.createStatement();
+                Statement stmt=connection.createStatement();
                 String query = "select * from " + remote_table_name;
                 ResultSet rs=stmt.executeQuery(query);
                 ResultSetMetaData rsmd = rs.getMetaData();
@@ -106,8 +106,7 @@ public class ConnectToOracle {
                 connection.close;
                 return returnstring;
                 }
-              }
-            } catch (Exception e) {
+             } catch (Exception e) {
             	System.out.println("Connection to ORACLE DB Failed! Check output console");
                 e.printStackTrace();
                 return "Connection to ORACLE DB Failed! Check output console";
