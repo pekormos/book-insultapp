@@ -83,7 +83,7 @@ public class ConnectToOracle {
             } catch (ClassNotFoundException e) {
                 returnstring += "Where is your Oracle JDBC Driver?";
                 e.printStackTrace();
-                return retval;
+                return returnstring;
             }
 
            try {
