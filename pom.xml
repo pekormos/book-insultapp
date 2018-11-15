@@ -22,9 +22,8 @@
 	<!-- ojdbc7.jar example -->
         <dependency>
             <groupId>com.oracle</groupId>
-            <artifactId>ojdbc7</artifactId>
-            <version>12.1.0.2</version>
-	    <scope>provided</scope>
+            <artifactId>ojdbc14</artifactId>
+            <version>10.2.0.4.0</version>
         </dependency>    
     </dependencies>	
 <build>
