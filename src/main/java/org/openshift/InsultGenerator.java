@@ -54,7 +54,7 @@ public class InsultGenerator {
             }
           }	catch(Exception e){ 
                 System.out.println(e);
-                return con + ", Failure in try" + ", connection string is:" + "jdbc:oracle:thin:@10.105.68.72:1521:"+databaseSID,databaseUser,databasePassword;
+                return con + ", Failure in try" + ", connection string is:" + "jdbc:oracle:thin:@10.105.68.72:1521:"+databaseSID + " " + databaseUser + " " + databasePassword;
             }
 	return "Cannot reach this point";
  	} //public String generateInsult()
