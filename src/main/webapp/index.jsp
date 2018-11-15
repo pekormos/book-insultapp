@@ -9,7 +9,7 @@
 </head>
 <body>
 <%
-new OracleConnect().main("");
+out.println(new OracleConnect().main());
 %>
     
     
