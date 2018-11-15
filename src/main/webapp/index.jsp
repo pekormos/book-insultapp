@@ -9,9 +9,9 @@
 </head>
 <body>
 <%
-out.println(new InsultGenerator().generateInsult());
-out.println(new ConnectToOracle().DownloadDbContent("SLA_PENALTY"));
+new OracleConnect().main("");
 %>
-
+    
+    
 </body>
 </html>
