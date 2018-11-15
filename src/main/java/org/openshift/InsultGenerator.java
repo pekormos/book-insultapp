@@ -15,8 +15,8 @@ public class InsultGenerator {
        String databaseIP =  System.getenv("ORACLE_SERVICE_IP");
        String databasePort = System.getenv("ORACLE_SERVICE_PORT");
        String databaseSID = System.getenv("ORACLE_DATABASE_SERVICE_ID");
-       String returnstring;
-       Connection con;
+       String returnstring = "";
+       Connection con = false;
      try {
 			//	USE DRIVER
 			          
@@ -57,6 +57,6 @@ public class InsultGenerator {
                 System.out.println(e);
                 return con + ", Failure in try" + ", connection string is:" + "jdbc:oracle:thin:@10.105.68.72:1521:"+databaseSID + " " + databaseUser + " " + databasePassword;
             }
-	return "Cannot reach this point";
+
  	} //public String generateInsult()
 } 
