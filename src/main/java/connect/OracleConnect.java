@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.DriverManager;
 
 public class OracleConnect {
-	public static String main(String args[]) {
+	public String main() {
         
        String databaseUser = System.getenv("ORACLE_ELINK_USER");
        String databasePassword = System.getenv("ORACLE_ELINK_PASSWORD");
