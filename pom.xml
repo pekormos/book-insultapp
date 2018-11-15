@@ -31,13 +31,15 @@
             </configuration>
         </plugin>
     </plugins>
+    <resources>
  	<resource>
         	<directory>lib</directory>
         	<filtering>false</filtering>
         	<includes>
           		<include>ojdbc7.jar</include>
         	</includes>
-      	</resource>	
+     	</resource>	
+     </resources>
 </build>
 
 <profiles>
