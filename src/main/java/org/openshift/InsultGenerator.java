@@ -16,7 +16,7 @@ public class InsultGenerator {
        String databasePort = System.getenv("ORACLE_SERVICE_PORT");
        String databaseSID = System.getenv("ORACLE_DATABASE_SERVICE_ID");
        String returnstring = "";
-       Connection con = false;
+       Connection con = null;
      try {
 			//	USE DRIVER
 			          
