@@ -14,14 +14,13 @@ public class OracleConnect {
        String databaseIP =  System.getenv("ORACLE_SERVICE_IP");
        String databasePort = System.getenv("ORACLE_SERVICE_PORT");
        String databaseSID = System.getenv("ORACLE_DATABASE_SERVICE_ID");
+		Connection con= null;
      try {
 			//	USE DRIVER
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			//	CONNECT TO DB
-			Connection con=DriverManager.getConnection(
-			"jdbc:oracle:thin:@10.105.68.72:1521:" + databaseSID,databaseUser,databasePassword);
-            //DriverManager.getConnection("jdbc:oracle"+ ":" + iDatabaseDriverType + ":" + "@" + iDatabaseIP + iDatabasePort + ":" + iDatabaseSID, iDatabaseUser, iDatabasePassword);
+            		con=DriverManager.getConnection("jdbc:oracle:thin:@"+ databaseIP + ":" + databasePort + ":" + databaseSID, databaseUser, databasePassword);
 
 			//	CREATE STATEMENT
 			Statement stmt=con.createStatement();
