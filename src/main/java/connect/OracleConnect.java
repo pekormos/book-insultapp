@@ -54,5 +54,6 @@ public class OracleConnect {
           }	catch(Exception e){ System.out.println(e); 
 				  return "Failure in try";
 				  }
+	return "This cannot be reached.";
 	}
 }
