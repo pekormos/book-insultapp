@@ -51,6 +51,8 @@ public class OracleConnect {
             else{
                return  "Connection is null!";
             }
-          }	catch(Exception e){ System.out.println(e);}
+          }	catch(Exception e){ System.out.println(e); 
+				  return "Failure in try";
+				  }
 	}
 }
