@@ -16,6 +16,7 @@ public class InsultGenerator {
        String databasePort = System.getenv("ORACLE_SERVICE_PORT");
        String databaseSID = System.getenv("ORACLE_DATABASE_SERVICE_ID");
        String returnstring;
+       Connection con;
      try {
 			//	USE DRIVER
 			          
@@ -31,7 +32,7 @@ public class InsultGenerator {
             
 
 			//	CONNECT TO DB
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@10.105.68.72:1521:"+databaseSID,databaseUser,databasePassword);
+			con=DriverManager.getConnection("jdbc:oracle:thin:@10.105.68.72:1521:"+databaseSID,databaseUser,databasePassword);
             //DriverManager.getConnection("jdbc:oracle"+ ":" + iDatabaseDriverType + ":" + "@" + iDatabaseIP + iDatabasePort + ":" + iDatabaseSID, iDatabaseUser, iDatabasePassword);
 
             if (con != null)
