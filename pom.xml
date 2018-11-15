@@ -19,6 +19,12 @@
             <artifactId>postgresql</artifactId>
             <version>9.4-1200-jdbc41</version>
         </dependency>
+	<!-- ojdbc7.jar example -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <version>12.1.0</version>
+        </dependency>    
     </dependencies>	
 <build>
     <plugins>
