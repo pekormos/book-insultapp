@@ -5,7 +5,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement; 
 import java.sql.SQLException;
 
-public class OracleConnect.java {
+public class OracleConnect {
 	public static void main(String args[]) {
         
        String databaseUser = System.getenv("ORACLE_ELINK_USER");
