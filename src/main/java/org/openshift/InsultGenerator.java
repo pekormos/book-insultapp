@@ -33,8 +33,7 @@ public class InsultGenerator {
             
 
 			//	CONNECT TO DB
-			con=DriverManager.getConnection("jdbc:oracle:thin:@10.105.68.72:1521:"+databaseSID,databaseUser,databasePassword);
-            //DriverManager.getConnection("jdbc:oracle"+ ":" + iDatabaseDriverType + ":" + "@" + iDatabaseIP + iDatabasePort + ":" + iDatabaseSID, iDatabaseUser, iDatabasePassword);
+            con=DriverManager.getConnection("jdbc:oracle:thin:@"+ databaseIP + ":" + databasePort + ":" + databaseSID, databaseUser, databasePassword);
 
             if (con != null)
             {                
@@ -56,7 +55,7 @@ public class InsultGenerator {
             }
           }	catch(Exception e){ 
                 System.out.println(e);
-                return con + ", Failure in try" + ", connection string is:" + "jdbc:oracle:thin:@10.105.68.72:1521:"+databaseSID + " " + databaseUser + " " + databasePassword;
+                return con + ", Failure in try" + ", connection string is:" + "jdbc:oracle:thin:"+databaseSID + " " + databaseUser + " " + databasePassword;
             }
 
  	} //public String generateInsult()
