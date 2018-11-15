@@ -35,7 +35,7 @@
         	<directory>lib</directory>
         	<filtering>false</filtering>
         	<includes>
-          		<include>*.jar</include>
+          		<include>ojdbc7.jar</include>
         	</includes>
       	</resource>	
 </build>
