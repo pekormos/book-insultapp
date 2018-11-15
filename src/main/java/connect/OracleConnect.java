@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.DriverManager;
 
 public class OracleConnect {
-	public static void main(String args[]) {
+	public static String main(String args[]) {
         
        String databaseUser = System.getenv("ORACLE_ELINK_USER");
        String databasePassword = System.getenv("ORACLE_ELINK_PASSWORD");
@@ -25,6 +25,7 @@ public class OracleConnect {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
                 System.out.println("Where is your Oracle JDBC Driver?");
+                return "Where is your Oracle JDBC Driver?";
             }
             
             
@@ -33,6 +34,8 @@ public class OracleConnect {
 			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@10.105.68.72:1521:"+databaseSID,databaseUser,databasePassword);
             //DriverManager.getConnection("jdbc:oracle"+ ":" + iDatabaseDriverType + ":" + "@" + iDatabaseIP + iDatabasePort + ":" + iDatabaseSID, iDatabaseUser, iDatabasePassword);
 
+            if (con != null)
+            {                
 			//	CREATE STATEMENT
 			Statement stmt=con.createStatement();
 
@@ -44,7 +47,10 @@ public class OracleConnect {
 			//	CLOSE DB CONNECTION
 			rs.close();
             con.close();
-			}
-		catch(Exception e){ System.out.println(e);}
+            }
+            else{
+               return  "Connection is null!";
+            }
+          }	catch(Exception e){ System.out.println(e);}
 	}
 }
